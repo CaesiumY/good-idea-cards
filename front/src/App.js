@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import api from "./api";
 import Posts from "./components/Posts";
+import AppLayout from "./container/AppLayout";
 
 export default class App extends Component {
   state = {
@@ -21,17 +22,19 @@ export default class App extends Component {
     const { results } = this.state;
     return (
       <>
-        <h1>hello world!</h1>
-        <div className="posts">
-          {results.map(item => (
-            <Posts
-              id={item.id}
-              author={item.author}
-              content={item.content}
-              key={item.id}
-            />
-          ))}
-        </div>
+        <AppLayout>
+          <h1>hello world!</h1>
+          <div className="posts">
+            {results.map(item => (
+              <Posts
+                id={item.id}
+                author={item.author}
+                content={item.content}
+                key={item.id}
+              />
+            ))}
+          </div>
+        </AppLayout>
       </>
     );
   }
