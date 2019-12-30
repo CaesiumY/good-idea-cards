@@ -9,7 +9,7 @@ class Post(models.Model):
     created_at = models.DateTimeField(auto_now_add="true")
 
     def __str__(self):
-        return self.content
+        return '{}: {}'.format(self.author, self.content)
 
 
 class Draft(models.Model):
@@ -18,4 +18,4 @@ class Draft(models.Model):
     created_at = models.DateTimeField(auto_now_add="true")
 
     def __str__(self):
-        return self.content
+        return '{}: {}'.format(self.author, self.content)
