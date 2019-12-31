@@ -48,12 +48,6 @@
   fill: #373a47;
 }
 
-/* Wrapper for item list */
-.bm-item-list {
-  color: #b8b7ad;
-  padding: 0.8em;
-}
-
 /* Individual item */
 .bm-item {
   display: inline-block;

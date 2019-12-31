@@ -5,7 +5,7 @@ import { Layout } from "antd";
 import "antd/dist/antd.css";
 import "../css/appLayout.css";
 
-const { Content, Footer } = Layout;
+const { Content, Footer, Header } = Layout;
 
 export default class AppLayout extends Component {
   state = {
@@ -21,7 +21,7 @@ export default class AppLayout extends Component {
   render() {
     return (
       <Layout style={{ minHeight: "100vh" }}>
-        <SideNav></SideNav>
+        <Header style={{ backgroundColor: "inherit" }}></Header>
         <Content
           style={{
             margin: "24px 16px",
