@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import SideNav from "../components/SideNav";
 
 import { Layout } from "antd";
 import "antd/dist/antd.css";
@@ -33,8 +32,12 @@ export default class AppLayout extends Component {
           {this.props.children}
         </Content>
         <Footer style={{ textAlign: "center" }}>
-          <a target="_blank" href="https://github.com/CaesiumY/good-idea-cards">
-            Good Idea Cards ©2018 Created by Caesiumy
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/CaesiumY/good-idea-cards"
+          >
+            Good Idea Cards ©2020 Created by Caesiumy
           </a>
         </Footer>
       </Layout>
