@@ -1,5 +1,11 @@
 # 👍좋은 생각 카드🃏
 
+## 💻데모
+
+https://caesiumy.github.io/good-idea-cards/#/
+
+> 백엔드는 미배포
+
 ## 🎈아이디어 동기
 
 <img src="./screenshots/good_idea_card.png" width="500">
@@ -18,11 +24,12 @@
 
 - [x] `Django REST Framework` 와 `React.js` 간의 연결
 - [x] 서버에서 랜덤으로 카드 뽑아오기
-- [x] <프론트> 홈 제작
-- [x] <프론트> 메뉴 제작
-- [ ] <프론트> 제안하기 제작
+- [x] 홈 제작
+- [x] 메뉴 제작
+- [ ] 제안하기 제작
 - [ ] 버튼을 눌러 카드 새로 가져오기
 - [ ] 메뉴의 버튼을 눌렀을 때 토글 off
+- [ ] 애니메이션 넣기!!
 
 ## 📷스크린샷(모바일)
 
