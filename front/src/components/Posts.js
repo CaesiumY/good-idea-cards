@@ -5,6 +5,7 @@ import styled from "styled-components";
 const PostCard = styled(Card)`
   @import url("https://fonts.googleapis.com/css?family=Noto+Serif+KR:400,700&display=swap&subset=korean");
   font-family: "Noto Serif KR", serif;
+  word-break: keep-all;
 `;
 
 export default class Posts extends Component {
