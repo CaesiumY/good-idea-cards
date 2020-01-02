@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import AppLayout from "../container/AppLayout";
 import api from "../api";
 import Posts from "../components/Posts";
 
-import { Spin, Alert } from "antd";
+import { Spin, Alert, Empty } from "antd";
 
 export default class Home extends Component {
   state = {
@@ -16,6 +15,11 @@ export default class Home extends Component {
     this.setState({ results: data.data, isLoading: false });
   };
 
+  stopLoading = () => {
+    setTimeout(() => {
+      this.setState({ isLoading: false });
+    }, 5000);
+  };
   componentDidMount() {
     this.getData();
   }
@@ -31,6 +35,8 @@ export default class Home extends Component {
               description="시간이 오래걸린다면 F5를 눌러 새로고침해주세요."
               type="info"
             />
+            <br />
+            <Empty />
           </Spin>
         ) : (
           <div className="posts">
