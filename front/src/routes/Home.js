@@ -32,7 +32,7 @@ export default class Home extends Component {
           <Spin tip="Loading...">
             <Alert
               message="데이터를 불러오는 중"
-              description="시간이 오래걸린다면 F5를 눌러 새로고침해주세요."
+              description="시간이 오래 걸린다면 서버가 닫혀있는 거랍니다."
               type="info"
             />
             <br />

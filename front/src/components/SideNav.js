@@ -44,6 +44,10 @@ export default class SideNav extends Component {
             <Icon type="edit" />
             <span> 제안하기</span>
           </MenuLink>
+          <MenuLink to="/search" id="search" className="menu-item">
+            <Icon type="search" />
+            <span> 검색하기</span>
+          </MenuLink>
           <MenuAnchor
             href="https://github.com/CaesiumY/good-idea-cards"
             target="_blank"
