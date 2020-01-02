@@ -40,7 +40,7 @@ export default class SideNav extends Component {
             <Icon type="home" />
             <span> 홈</span>
           </MenuLink>
-          <MenuLink to="/drafts" id="edit" className="menu-item">
+          <MenuLink to="/drafts" id="suggest" className="menu-item">
             <Icon type="edit" />
             <span> 제안하기</span>
           </MenuLink>

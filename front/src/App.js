@@ -4,6 +4,8 @@ import Home from "./routes/Home";
 import Draft from "./routes/Draft";
 import SideNav from "./components/SideNav";
 import { Layout } from "antd";
+import moduleName from "./container/AppLayout";
+import AppLayout from "./container/AppLayout";
 
 export default class App extends Component {
   render() {
@@ -12,8 +14,10 @@ export default class App extends Component {
         <Layout style={{ minHeight: "100vh" }}>
           <HashRouter>
             <SideNav></SideNav>
-            <Route path="/" exact={true} component={Home}></Route>
-            <Route path="/dratfs" component={Draft}></Route>
+            <AppLayout>
+              <Route path="/" exact={true} component={Home}></Route>
+              <Route path="/drafts/" exact={true} component={Draft}></Route>
+            </AppLayout>
           </HashRouter>
         </Layout>
       </>
