@@ -1,8 +1,18 @@
 import React, { Component } from "react";
 import api from "../api";
 import { Form, Icon, Input, Button } from "antd";
+import styled from "styled-components";
 
 const { TextArea } = Input;
+
+const SubmitButton = styled(Button)`
+  @import url("https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,900&display=swap&subset=korean");
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 1rem;
+  color: white;
+  background-color: #373a47;
+  border-color: #373a47;
+`;
 
 class Draft extends Component {
   state = {
@@ -62,15 +72,15 @@ class Draft extends Component {
             )}
           </Form.Item>
           <Form.Item>
-            <Button
+            <SubmitButton
               htmlType="submit"
               className="draft-form-button"
               block
               loading={isLoading}
               onClick={this.enterLoading}
             >
-              Log in
-            </Button>
+              제출하기
+            </SubmitButton>
           </Form.Item>
         </Form>
       </>
