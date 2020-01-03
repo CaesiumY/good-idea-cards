@@ -75,6 +75,7 @@ class Draft extends Component {
                   <Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />
                 }
                 placeholder="인물 또는 성어를 적어주세요."
+                allowClear
               />
             )}
           </Form.Item>
