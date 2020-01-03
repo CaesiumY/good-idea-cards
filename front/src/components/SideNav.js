@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { slide as Menu } from "react-burger-menu";
+import { bubble as Menu } from "react-burger-menu";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Icon } from "antd";
@@ -25,26 +25,55 @@ const MenuAnchor = styled.a`
 `;
 
 export default class SideNav extends Component {
+  state = {
+    isOpenMenu: false
+  };
+
+  closeMenu = () => {
+    this.setState({ isOpenMenu: false });
+  };
+
+  handleStateChange(state) {
+    this.setState({ isOpenMenu: state.isOpen });
+  }
+
   showSettings(event) {
     event.preventDefault();
   }
 
-  isMenuOpen = function(state) {
-    return state.isOpen;
-  };
   render() {
     return (
       <>
-        <Menu onStateChange={this.isMenuOpen}>
-          <MenuLink to="/" id="home" className="menu-item">
+        <Menu
+          isOpen={this.state.isOpenMenu}
+          onStateChange={state => {
+            this.handleStateChange(state);
+          }}
+        >
+          <MenuLink
+            onClick={() => this.closeMenu()}
+            to="/"
+            id="home"
+            className="menu-item"
+          >
             <Icon type="home" />
             <span> 홈</span>
           </MenuLink>
-          <MenuLink to="/drafts" id="suggest" className="menu-item">
+          <MenuLink
+            onClick={() => this.closeMenu()}
+            to="/drafts"
+            id="suggest"
+            className="menu-item"
+          >
             <Icon type="edit" />
             <span> 제안하기</span>
           </MenuLink>
-          <MenuLink to="/search" id="search" className="menu-item">
+          <MenuLink
+            onClick={() => this.closeMenu()}
+            to="/search"
+            id="search"
+            className="menu-item"
+          >
             <Icon type="search" />
             <span> 검색하기</span>
           </MenuLink>
