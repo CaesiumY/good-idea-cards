@@ -25,7 +25,7 @@ SECRET_KEY = 'rr&5nhnf@c=rl1y-*-h4p$1sol#fp+w=q7h%a7n1d-7!odlenz'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -135,3 +135,4 @@ CORS_ALLOW_METHODS = [
     'GET',
     'POST',
 ]
+CORS_ALLOW_CREDENTIALS = True

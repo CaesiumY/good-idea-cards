@@ -21,34 +21,41 @@ class Draft extends Component {
     isLoading: false
   };
 
-  pushData = async () => {
+  pushData() {
     this.enterLoading();
-    const result = await api.createDrafts({
-      author: this.state.author,
-      content: this.state.content
-    });
-    this.setState({ title: "", body: "" });
-    console.log("result:", result);
-    this.exitLoading();
-  };
+    api
+      .createDrafts({
+        author: this.state.author,
+        content: this.state.content
+      })
+      .then(response => {
+        this.setState({ title: "", body: "" });
+        console.log(response);
+        this.exitLoading();
+      })
+      .catch(e => {
+        console.log(e);
+      });
+  }
 
   enterLoading = () => {
+    console.log("loading");
     this.setState({ isLoading: true });
   };
 
   exitLoading = () => {
+    console.log("loaded");
     this.setState({ isLoading: false });
   };
 
   handleSubmit = e => {
     e.preventDefault();
 
-    this.props.form.validateFields((err, values) => {
+    this.props.form.validateFields(async (err, values) => {
       if (!err) {
         console.log("Received values of form: ", values.author, values.content);
-        this.setState({ author: values.author, content: values.content });
-        console.log("current state: ", this.state.author);
-        this.pushData();
+        await this.setState({ author: values.author, content: values.content });
+        await this.pushData();
       }
     });
   };
