@@ -22,12 +22,14 @@ class Draft extends Component {
   };
 
   pushData = async () => {
+    this.enterLoading();
     const result = await api.createDrafts({
       author: this.state.author,
       content: this.state.content
     });
     this.setState({ title: "", body: "" });
     console.log("result:", result);
+    this.exitLoading();
   };
 
   enterLoading = () => {
@@ -40,10 +42,15 @@ class Draft extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    this.enterLoading();
-    setTimeout(() => {
-      this.exitLoading();
-    }, 3000);
+
+    this.props.form.validateFields((err, values) => {
+      if (!err) {
+        console.log("Received values of form: ", values.author, values.content);
+        this.setState({ author: values.author, content: values.content });
+        console.log("current state: ", this.state.author);
+        this.pushData();
+      }
+    });
   };
 
   render() {
@@ -51,7 +58,7 @@ class Draft extends Component {
     const { isLoading } = this.state;
     return (
       <>
-        <Form onSubmit={this.handleSubmit} className="login-form">
+        <Form onSubmit={this.handleSubmit} className="draft-form">
           <Form.Item>
             {getFieldDecorator("author", {
               rules: [{ required: true, message: "첫 번째 칸을 채워주세요!" }]
