@@ -40,6 +40,10 @@ class Draft extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
+    this.enterLoading();
+    setTimeout(() => {
+      this.exitLoading();
+    }, 3000);
   };
 
   render() {
@@ -77,7 +81,7 @@ class Draft extends Component {
               className="draft-form-button"
               block
               loading={isLoading}
-              onClick={this.enterLoading}
+              type="primary"
             >
               제출하기
             </SubmitButton>
