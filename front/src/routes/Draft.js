@@ -29,7 +29,6 @@ class Draft extends Component {
         content: this.state.content
       })
       .then(response => {
-        this.setState({ title: "", body: "" });
         console.log(response);
         this.exitLoading();
       })
@@ -37,6 +36,8 @@ class Draft extends Component {
         console.log(e);
       });
   }
+
+  printSuccess = () => {};
 
   enterLoading = () => {
     console.log("loading");
@@ -53,9 +54,9 @@ class Draft extends Component {
 
     this.props.form.validateFields(async (err, values) => {
       if (!err) {
-        console.log("Received values of form: ", values.author, values.content);
         await this.setState({ author: values.author, content: values.content });
         await this.pushData();
+        this.props.form.resetFields();
       }
     });
   };
