@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import api from "../api";
-import { Form, Icon, Input, Button } from "antd";
+import { Form, Icon, Input, Button, Alert } from "antd";
 import styled from "styled-components";
 
 const { TextArea } = Input;
@@ -18,7 +18,12 @@ class Draft extends Component {
   state = {
     author: "",
     content: "",
-    isLoading: false
+    isLoading: false,
+    isSuccess: false
+  };
+
+  onClose = e => {
+    this.setState({ isSuccess: false });
   };
 
   pushData() {
@@ -37,7 +42,9 @@ class Draft extends Component {
       });
   }
 
-  printSuccess = () => {};
+  printSuccess = () => {
+    this.setState({ isSuccess: true });
+  };
 
   enterLoading = () => {
     console.log("loading");
@@ -57,13 +64,14 @@ class Draft extends Component {
         await this.setState({ author: values.author, content: values.content });
         await this.pushData();
         this.props.form.resetFields();
+        this.printSuccess();
       }
     });
   };
 
   render() {
     const { getFieldDecorator } = this.props.form;
-    const { isLoading } = this.state;
+    const { isLoading, isSuccess } = this.state;
     return (
       <>
         <Form onSubmit={this.handleSubmit} className="draft-form">
@@ -103,6 +111,17 @@ class Draft extends Component {
             </SubmitButton>
           </Form.Item>
         </Form>
+
+        {isSuccess && (
+          <Alert
+            message="제출 성공!"
+            description="내용 검토 후 반영됩니다!"
+            type="success"
+            showIcon
+            closable
+            onClose={this.onClose}
+          />
+        )}
       </>
     );
   }
