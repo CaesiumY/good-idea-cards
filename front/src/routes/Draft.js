@@ -19,11 +19,13 @@ class Draft extends Component {
     author: "",
     content: "",
     isLoading: false,
-    isSuccess: false
+    isSuccess: false,
+    isError: false,
+    errorMessage: []
   };
 
   onClose = e => {
-    this.setState({ isSuccess: false });
+    this.setState({ isSuccess: false, isError: false });
   };
 
   pushData() {
@@ -36,9 +38,12 @@ class Draft extends Component {
       .then(response => {
         console.log(response);
         this.exitLoading();
+        this.printSuccess();
       })
-      .catch(e => {
-        console.log(e);
+      .catch(error => {
+        console.log(error);
+        this.setState({ isError: true, errorMessage: error.message });
+        this.exitLoading();
       });
   }
 
@@ -64,14 +69,13 @@ class Draft extends Component {
         await this.setState({ author: values.author, content: values.content });
         await this.pushData();
         this.props.form.resetFields();
-        this.printSuccess();
       }
     });
   };
 
   render() {
     const { getFieldDecorator } = this.props.form;
-    const { isLoading, isSuccess } = this.state;
+    const { isLoading, isSuccess, isError, errorMessage } = this.state;
     return (
       <>
         <Form onSubmit={this.handleSubmit} className="draft-form">
@@ -117,6 +121,17 @@ class Draft extends Component {
             message="제출 성공!"
             description="내용 검토 후 반영됩니다!"
             type="success"
+            showIcon
+            closable
+            onClose={this.onClose}
+          />
+        )}
+
+        {isError && (
+          <Alert
+            message="제출 실패!"
+            description={errorMessage}
+            type="error"
             showIcon
             closable
             onClose={this.onClose}
