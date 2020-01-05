@@ -7,6 +7,21 @@ import random
 # Create your views here.
 
 
+def isValidQueryParams(param):
+    return param != '' and param is not None
+
+
+def filter(request):
+    qs = Post.objects.all()
+    searchQuery = request.GET.get('search')
+
+    if isValidQueryParams(searchQuery):
+        qs = qs.filter(Q(author__icontains=searchQuery) | Q(
+            content__icontains=searchQuery)).distinct()
+
+    return qs
+
+
 def pickRandom():
     return random.randrange(1, Post.objects.all().count() + 1)
 
@@ -22,3 +37,11 @@ class postsViewset(viewsets.ModelViewSet):
 class draftsViewset(viewsets.ModelViewSet):
     queryset = Draft.objects.all()
     serializer_class = draftSerializer
+
+
+class searchViewset(viewsets.ModelViewSet):
+    serializer_class = postSerializer
+
+    def get_queryset():
+        qs = filter(self.request)
+        return qs
