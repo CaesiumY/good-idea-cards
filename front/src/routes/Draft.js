@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import api from "../api";
-import { Form, Icon, Input, Button, Alert } from "antd";
+import { Form, Icon, Input, Button } from "antd";
 import styled from "styled-components";
+import AlertMessage from "../components/AlertMessage";
 
 const { TextArea } = Input;
 
@@ -21,7 +22,7 @@ class Draft extends Component {
     isLoading: false,
     isSuccess: false,
     isError: false,
-    errorMessage: []
+    errorMessage: ""
   };
 
   onClose = e => {
@@ -116,27 +117,12 @@ class Draft extends Component {
           </Form.Item>
         </Form>
 
-        {isSuccess && (
-          <Alert
-            message="제출 성공!"
-            description="내용 검토 후 반영됩니다!"
-            type="success"
-            showIcon
-            closable
-            onClose={this.onClose}
-          />
-        )}
-
-        {isError && (
-          <Alert
-            message="제출 실패!"
-            description={errorMessage}
-            type="error"
-            showIcon
-            closable
-            onClose={this.onClose}
-          />
-        )}
+        <AlertMessage
+          isSuccess={isSuccess}
+          isError={isError}
+          errorMessage={errorMessage}
+          onClose={this.onClose}
+        />
       </>
     );
   }
