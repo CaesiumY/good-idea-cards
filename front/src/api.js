@@ -11,6 +11,16 @@ export default {
     return axios.get("/drafts/");
   },
 
+  getSearchData(payload) {
+    console.log("payload:", payload);
+    const search_query = payload;
+    return axios.get("/search/", {
+      params: {
+        search_query
+      }
+    });
+  },
+
   createDrafts(payload) {
     return axios.post("/drafts/", payload);
   }

@@ -14,11 +14,10 @@ def isValidQueryParams(param):
 
 def filter(request):
     qs = Post.objects.all()
-    searchQuery = request.GET.get('search')
-
+    searchQuery = request.GET.get('search_query')
     if isValidQueryParams(searchQuery):
         qs = qs.filter(Q(author__icontains=searchQuery) | Q(
-            content__icontains=searchQuery)).distinct()
+            content__icontains=searchQuery) | Q(id__icontains=searchQuery)).distinct()
 
     return qs
 
@@ -41,6 +40,7 @@ class draftsViewset(viewsets.ModelViewSet):
 
 
 class searchViewset(viewsets.ModelViewSet):
+    queryset = Post.objects.all()
     serializer_class = searchSerializer
 
     def get_queryset(self):
