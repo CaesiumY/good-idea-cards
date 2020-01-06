@@ -24,13 +24,14 @@ https://caesiumy.github.io/good-idea-cards/#/
 
 - [x] `Django REST Framework` 와 `React.js` 간의 연결
 - [x] 서버에서 랜덤으로 카드 뽑아오기
-- [x] 홈 제작
-- [x] 메뉴 제작
-- [x] 제안하기 제작
+- [x] 홈 
+- [x] 메뉴 
+- [x] 제안하기
+- [x] 검색하기
+- [x] 메뉴의 버튼을 눌렀을 때 토글 off
 - [ ] 버튼을 눌러 카드 새로 가져오기
-- [ ] 메뉴의 버튼을 눌렀을 때 토글 off
-- [ ] 애니메이션 넣기!!
 - [ ] 관리자 페이지 제작
+- [ ] 애니메이션 넣기!!
 
 ## 📷스크린샷(모바일)
 
@@ -42,4 +43,14 @@ https://caesiumy.github.io/good-idea-cards/#/
 <details>
 <summary>메뉴</summary>
 <img src="./screenshots/localhost_3000_(Galaxy&#32;S5)&#32;(1).png" width=400px>
+</details>
+
+<details>
+<summary>제안하기</summary>
+<img src="./screenshots/localhost_3000_(Galaxy&#32;S5)&#32;(3).png" width=400px>
+</details>
+
+<details>
+<summary>검색하기</summary>
+<img src="./screenshots/localhost_3000_(Galaxy&#32;S5)&#32;(2).png" width=400px>
 </details>
