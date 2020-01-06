@@ -7,7 +7,6 @@ import { Icon } from "antd";
 import "../css/sideNav.css";
 
 const MenuLink = styled(Link)`
-  @import url("https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,900&display=swap&subset=korean");
   font-family: "Noto Sans KR", sans-serif;
   font-size: 2rem;
   font-weight: 600;
@@ -16,7 +15,6 @@ const MenuLink = styled(Link)`
 `;
 
 const MenuAnchor = styled.a`
-  @import url("https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,900&display=swap&subset=korean");
   font-family: "Noto Sans KR", sans-serif;
   font-size: 2rem;
   font-weight: 600;
