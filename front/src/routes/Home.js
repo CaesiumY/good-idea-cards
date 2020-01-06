@@ -12,7 +12,7 @@ export default class Home extends Component {
 
   getData = async () => {
     const data = await api.getAllPosts();
-    this.setState({ results: data.data, isLoading: false });
+    await this.setState({ results: data.data, isLoading: false });
   };
 
   stopLoading = () => {
@@ -23,11 +23,17 @@ export default class Home extends Component {
   componentDidMount() {
     this.getData();
   }
+
+  componentWillUnmount() {
+    this.setState({ results: [] });
+  }
+
   render() {
     const { results, isLoading } = this.state;
 
     return (
       <div>
+        test
         {isLoading ? (
           <Spin tip="Loading...">
             <Alert
