@@ -4,7 +4,7 @@ from django.db import models
 
 
 class Post(models.Model):
-    author = models.CharField(max_length=10)
+    author = models.CharField(max_length=30)
     content = models.TextField()
     created_at = models.DateTimeField(auto_now_add="true")
 
@@ -13,7 +13,7 @@ class Post(models.Model):
 
 
 class Draft(models.Model):
-    author = models.CharField(max_length=10)
+    author = models.CharField(max_length=30)
     content = models.TextField()
     created_at = models.DateTimeField(auto_now_add="true")
 

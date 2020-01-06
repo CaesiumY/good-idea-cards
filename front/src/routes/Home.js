@@ -33,7 +33,6 @@ export default class Home extends Component {
 
     return (
       <div>
-        test
         {isLoading ? (
           <Spin tip="Loading...">
             <Alert

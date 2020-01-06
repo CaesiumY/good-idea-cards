@@ -1,7 +1,9 @@
 import React, { Component } from "react";
-import { Empty } from "antd";
+import { Empty, Input } from "antd";
 
-export default class Search extends Component {
+const { Search } = Input;
+
+export default class SearchContainer extends Component {
   render() {
     return (
       <div>
