@@ -12,7 +12,6 @@ export default {
   },
 
   getSearchData(payload) {
-    console.log("payload:", payload);
     const search_query = payload;
     return axios.get("/search/", {
       params: {

@@ -17,7 +17,6 @@ export default class SearchContainer extends Component {
   };
 
   handleSearch = value => {
-    console.log(value);
     this.setState({ isLoading: true });
     this.getData(value);
   };
