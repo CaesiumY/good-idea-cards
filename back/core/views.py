@@ -12,7 +12,7 @@ def isValidQueryParams(param):
     return param != '' and param is not None
 
 
-def filter(request):
+def filterQuery(request):
     qs = Post.objects.all()
     searchQuery = request.GET.get('search_query')
     if isValidQueryParams(searchQuery):
@@ -44,5 +44,5 @@ class searchViewset(viewsets.ModelViewSet):
     serializer_class = searchSerializer
 
     def get_queryset(self):
-        qs = filter(self.request)
+        qs = filterQuery(self.request)
         return qs
