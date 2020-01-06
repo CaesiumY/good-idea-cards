@@ -1,6 +1,7 @@
 from django.shortcuts import render
+from django.db.models import Q
 from .models import Post, Draft
-from .serializer import postSerializer, draftSerializer
+from .serializer import postSerializer, draftSerializer, searchSerializer
 from rest_framework import viewsets, filters
 import random
 
@@ -40,8 +41,8 @@ class draftsViewset(viewsets.ModelViewSet):
 
 
 class searchViewset(viewsets.ModelViewSet):
-    serializer_class = postSerializer
+    serializer_class = searchSerializer
 
-    def get_queryset():
+    def get_queryset(self):
         qs = filter(self.request)
         return qs

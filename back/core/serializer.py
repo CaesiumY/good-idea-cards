@@ -12,3 +12,9 @@ class draftSerializer(serializers.ModelSerializer):
     class Meta:
         model = Draft
         fields = '__all__'
+
+
+class searchSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Post
+        fields = '__all__'
