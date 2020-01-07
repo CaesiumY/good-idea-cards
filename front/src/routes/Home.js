@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import api from "../api";
 import Posts from "../components/Posts";
 
-import { Spin, Alert, Empty, Button } from "antd";
+import { Spin, Alert, Empty, Button, notification } from "antd";
 
 export default class Home extends Component {
   state = {
@@ -11,23 +11,28 @@ export default class Home extends Component {
     results: []
   };
 
-  getData = async () => {
-    const data = await api.getAllPosts();
-    await this.setState({
-      results: data.data,
-      isLoading: false,
-      isReloading: false
+  openNotificationWithIcon = (type, message) => {
+    notification[type]({
+      message: `${message}`
     });
   };
 
-  stopLoading = () => {
-    setTimeout(() => {
-      this.setState({ isLoading: false });
-    }, 5000);
+  getData = async () => {
+    await api
+      .getAllPosts()
+      .then(response => {
+        this.setState({
+          results: response.data,
+          isLoading: false,
+          isReloading: false
+        });
+      })
+      .catch(e => {
+        this.openNotificationWithIcon("error", e);
+      });
   };
 
   reloadData = () => {
-    console.log("reload");
     this.setState({ isReloading: true });
     this.getData();
   };
