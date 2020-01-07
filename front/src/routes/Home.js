@@ -2,17 +2,22 @@ import React, { Component } from "react";
 import api from "../api";
 import Posts from "../components/Posts";
 
-import { Spin, Alert, Empty } from "antd";
+import { Spin, Alert, Empty, Button } from "antd";
 
 export default class Home extends Component {
   state = {
     isLoading: true,
+    isReloading: false,
     results: []
   };
 
   getData = async () => {
     const data = await api.getAllPosts();
-    await this.setState({ results: data.data, isLoading: false });
+    await this.setState({
+      results: data.data,
+      isLoading: false,
+      isReloading: false
+    });
   };
 
   stopLoading = () => {
@@ -20,6 +25,13 @@ export default class Home extends Component {
       this.setState({ isLoading: false });
     }, 5000);
   };
+
+  reloadData = () => {
+    console.log("reload");
+    this.setState({ isReloading: true });
+    this.getData();
+  };
+
   componentDidMount() {
     this.getData();
   }
@@ -29,10 +41,10 @@ export default class Home extends Component {
   }
 
   render() {
-    const { results, isLoading } = this.state;
+    const { results, isLoading, isReloading } = this.state;
 
     return (
-      <div>
+      <>
         {isLoading ? (
           <Spin tip="Loading...">
             <Alert
@@ -44,7 +56,7 @@ export default class Home extends Component {
             <Empty />
           </Spin>
         ) : (
-          <div className="posts">
+          <div>
             {results.map(item => (
               <Posts
                 id={item.id}
@@ -53,9 +65,19 @@ export default class Home extends Component {
                 key={item.id}
               />
             ))}
+            <Button
+              type="primary"
+              block
+              style={{ position: "relative", top: "150px" }}
+              icon="reload"
+              loading={isReloading}
+              onClick={this.reloadData}
+            >
+              새로 가져오기
+            </Button>
           </div>
         )}
-      </div>
+      </>
     );
   }
 }
