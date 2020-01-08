@@ -11,6 +11,14 @@ export default {
     return axios.get("/drafts/");
   },
 
+  createDrafts(payload) {
+    return axios.post("/drafts/", payload);
+  },
+
+  deleteDrafts(payload) {
+    return axios.delete("/drafts/" + String(payload));
+  },
+
   getSearchData(payload) {
     const search_query = payload;
     return axios.get("/search/", {
@@ -18,9 +26,5 @@ export default {
         search_query
       }
     });
-  },
-
-  createDrafts(payload) {
-    return axios.post("/drafts/", payload);
   }
 };

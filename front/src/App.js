@@ -6,6 +6,7 @@ import AppLayout from "./container/AppLayout";
 import Home from "./routes/Home";
 import Draft from "./routes/Draft";
 import Search from "./routes/Search";
+import Admin from "./routes/Admin";
 import SideNav from "./components/SideNav";
 
 const GlobalStyle = createGlobalStyle`
@@ -26,6 +27,7 @@ export default class App extends Component {
               <Route path="/" exact={true} component={Home}></Route>
               <Route path="/drafts/" exact={true} component={Draft}></Route>
               <Route path="/search/" exact={true} component={Search}></Route>
+              <Route path="/admin/" exact={true} component={Admin}></Route>
             </AppLayout>
           </HashRouter>
         </Layout>
