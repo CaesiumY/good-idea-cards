@@ -58,5 +58,6 @@ https://caesiumy.github.io/good-idea-cards/#/
 <details>
 <summary>관리자 페이지</summary>
 <img src="./screenshots/localhost_3000_(Galaxy&#32;S5)&#32;(5).png" width=400px>
-<img src="./screenshots/localhost_3000_(Galaxy&#32;S5)&#32;(4).png" width=400px>
+<br/>
+<a href="https://raw.githubusercontent.com/CaesiumY/good-idea-cards/master/screenshots/localhost_3000_(Galaxy%20S5)%20(4).png">PC버전</a>
 </details>
