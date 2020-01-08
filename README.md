@@ -29,8 +29,8 @@ https://caesiumy.github.io/good-idea-cards/#/
 - [x] 제안하기
 - [x] 검색하기
 - [x] 메뉴의 버튼을 눌렀을 때 토글 off
-- [ ] 버튼을 눌러 카드 새로 가져오기
-- [ ] 관리자 페이지 제작
+- [x] 버튼을 눌러 카드 새로 가져오기
+- [ ] 관리자 페이지 제작 -> 뼈대 완성!
 - [ ] 애니메이션 넣기!!
 
 ## 📷스크린샷(모바일)
@@ -53,4 +53,10 @@ https://caesiumy.github.io/good-idea-cards/#/
 <details>
 <summary>검색하기</summary>
 <img src="./screenshots/localhost_3000_(Galaxy&#32;S5)&#32;(2).png" width=400px>
+</details>
+
+<details>
+<summary>관리자 페이지</summary>
+<img src="./screenshots/localhost_3000_(Galaxy&#32;S5)&#32;(5).png" width=400px>
+<img src="./screenshots/localhost_3000_(Galaxy&#32;S5)&#32;(4).png" width=400px>
 </details>
