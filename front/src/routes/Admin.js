@@ -65,7 +65,12 @@ export default class Admin extends Component {
             {hasSelected ? `${selectedRowKeys.length} 개 선택` : ""}
           </span>
         </div>
-        <Table dataSource={results} rowSelection={rowSelection} size="small">
+        <Table
+          dataSource={results}
+          rowSelection={rowSelection}
+          size="small"
+          rowKey="id"
+        >
           <Column title="Id" dataIndex="id" key="id" />
           <Column title="Author" dataIndex="author" key="author" />
           <Column title="Content" dataIndex="content" key="content" />
