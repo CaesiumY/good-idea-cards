@@ -27,8 +27,10 @@ export default class Admin extends Component {
     this.setState({ selectedRowKeys });
   };
 
-  confirmDelete = e => {
+  confirmDeleteOneItem = async (index, e) => {
     message.error("삭제되었습니다.");
+    await api.deleteDrafts(index);
+    this.getData();
   };
 
   componentDidMount() {
@@ -46,7 +48,7 @@ export default class Admin extends Component {
     return (
       <>
         <div style={{ marginBottom: 16 }}>
-          <Button type="primary" onClick={this.start} disabled={!hasSelected}>
+          <Button type="primary" disabled={!hasSelected}>
             추가
           </Button>
           <Divider type="vertical" />
@@ -57,7 +59,7 @@ export default class Admin extends Component {
             cancelText="아니오"
             placement="topLeft"
           >
-            <Button type="danger" onClick={this.start} disabled={!hasSelected}>
+            <Button type="danger" disabled={!hasSelected}>
               삭제
             </Button>
           </Popconfirm>
@@ -85,7 +87,7 @@ export default class Admin extends Component {
                 <Divider type="vertical" style={{ visibility: "hidden" }} />
                 <Popconfirm
                   title={`${record.id}번 항목을 정말로 삭제하시겠습니까?`}
-                  onConfirm={this.confirmDelete}
+                  onConfirm={this.confirmDeleteOneItem.bind(this, record.id)}
                   okText="예"
                   cancelText="아니오"
                   placement="topRight"
