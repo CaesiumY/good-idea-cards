@@ -27,10 +27,30 @@ export default class Admin extends Component {
     this.setState({ selectedRowKeys });
   };
 
-  confirmDeleteOneItem = async (index, e) => {
-    message.error("삭제되었습니다.");
-    await api.deleteDrafts(index);
-    this.getData();
+  confirmDeleteOneItem = (index, e) => {
+    api
+      .deleteDrafts(index)
+      .then(response => {
+        message.error("삭제되었습니다.");
+        this.getData();
+      })
+      .catch(e => {
+        message.error(e.message);
+      });
+  };
+
+  confirmDeleteMultipleItems = async (indexes, e) => {
+    indexes.map(async index => {
+      api
+        .deleteDrafts(index)
+        .then(response => {
+          message.error("삭제되었습니다.");
+          this.getData();
+        })
+        .catch(e => {
+          message.error(e.message);
+        });
+    });
   };
 
   componentDidMount() {
@@ -54,7 +74,10 @@ export default class Admin extends Component {
           <Divider type="vertical" />
           <Popconfirm
             title={`${selectedRowKeys.length}개의 아이템을 정말로 삭제하시겠습니까?`}
-            onConfirm={this.confirmDelete}
+            onConfirm={this.confirmDeleteMultipleItems.bind(
+              this,
+              selectedRowKeys
+            )}
             okText="예"
             cancelText="아니오"
             placement="topLeft"
