@@ -22,8 +22,6 @@ export default class Admin extends Component {
       });
   };
 
-  pushData = async () => {};
-
   onSelectChange = selectedRowKeys => {
     console.log("selectedRowKeys changed: ", selectedRowKeys);
     this.setState({ selectedRowKeys });
@@ -42,7 +40,7 @@ export default class Admin extends Component {
   };
 
   confirmDeleteMultipleItems = async (indexes, e) => {
-    indexes.map(async index => {
+    indexes.forEach(index => {
       api
         .deleteDrafts(index)
         .then(response => {
@@ -58,7 +56,7 @@ export default class Admin extends Component {
   confirmAddOneItem = (payload, e) => {
     console.log("payload:", payload);
     api
-      .createPosts({
+      .createDrafts({
         author: payload.author,
         content: payload.content,
         created_at: payload.created_at
@@ -73,8 +71,30 @@ export default class Admin extends Component {
       });
   };
 
-  confirmAddMultipleItem = e => {
-    console.log("add multiple item");
+  confirmAddMultipleItems = async (payload, e) => {
+    console.log(payload);
+    await payload.forEach(item => {
+      this.state.results.forEach(result => {
+        if (item === result.id) {
+          console.log("result:", result);
+          api
+            .createDrafts({
+              author: result.author,
+              content: result.content,
+              created_at: result.created_at
+            })
+            .then(response => {
+              console.log("response:", response);
+              this.confirmDeleteOneItem(result.id);
+              this.getData();
+            })
+            .catch(error => {
+              console.log("error:", error);
+            });
+        }
+      });
+    });
+    this.setState({ selectedRowKeys: [] });
   };
 
   componentDidMount() {
@@ -94,7 +114,7 @@ export default class Admin extends Component {
         <div style={{ marginBottom: 16 }}>
           <Popconfirm
             title={`${selectedRowKeys}번 항목을 정말로 추가하시겠습니까?`}
-            onConfirm={this.confirmAddMultipleItem.bind(this, selectedRowKeys)}
+            onConfirm={this.confirmAddMultipleItems.bind(this, selectedRowKeys)}
             okText="예"
             cancelText="아니오"
             placement="topRight"
@@ -133,7 +153,6 @@ export default class Admin extends Component {
           <Column title="Content" dataIndex="content" key="content" />
 
           <Column
-            rowSelection={rowSelection}
             title="Action"
             key="action"
             render={(text, record, index) => (
