@@ -22,6 +22,8 @@ export default class Admin extends Component {
       });
   };
 
+  pushData = async () => {};
+
   onSelectChange = selectedRowKeys => {
     console.log("selectedRowKeys changed: ", selectedRowKeys);
     this.setState({ selectedRowKeys });
@@ -53,8 +55,22 @@ export default class Admin extends Component {
     });
   };
 
-  confirmAddOneItem = e => {
-    console.log("add one item");
+  confirmAddOneItem = (payload, e) => {
+    console.log("payload:", payload);
+    api
+      .createPosts({
+        author: payload.author,
+        content: payload.content,
+        created_at: payload.created_at
+      })
+      .then(response => {
+        console.log(response);
+        this.confirmDeleteOneItem(payload.id);
+        this.getData();
+      })
+      .catch(error => {
+        console.log(error);
+      });
   };
 
   confirmAddMultipleItem = e => {
@@ -121,10 +137,10 @@ export default class Admin extends Component {
             title="Action"
             key="action"
             render={(text, record, index) => (
-              <span>
+              <div>
                 <Popconfirm
                   title={`${record.id}번 항목을 정말로 추가하시겠습니까?`}
-                  onConfirm={this.confirmAddOneItem.bind(this, record.id)}
+                  onConfirm={this.confirmAddOneItem.bind(this, record)}
                   okText="예"
                   cancelText="아니오"
                   placement="topRight"
@@ -141,7 +157,7 @@ export default class Admin extends Component {
                 >
                   <Button type="danger">삭제</Button>
                 </Popconfirm>
-              </span>
+              </div>
             )}
           />
         </Table>{" "}

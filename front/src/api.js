@@ -7,6 +7,10 @@ export default {
     return axios.get("/posts/");
   },
 
+  createPosts(payload) {
+    return axios.post("/posts/", payload);
+  },
+
   getAllDrafts() {
     return axios.get("/drafts/");
   },
