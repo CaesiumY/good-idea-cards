@@ -53,6 +53,14 @@ export default class Admin extends Component {
     });
   };
 
+  confirmAddOneItem = e => {
+    console.log("add one item");
+  };
+
+  confirmAddMultipleItem = e => {
+    console.log("add multiple item");
+  };
+
   componentDidMount() {
     this.getData();
   }
@@ -68,9 +76,17 @@ export default class Admin extends Component {
     return (
       <>
         <div style={{ marginBottom: 16 }}>
-          <Button type="primary" disabled={!hasSelected}>
-            추가
-          </Button>
+          <Popconfirm
+            title={`${selectedRowKeys}번 항목을 정말로 추가하시겠습니까?`}
+            onConfirm={this.confirmAddMultipleItem.bind(this, selectedRowKeys)}
+            okText="예"
+            cancelText="아니오"
+            placement="topRight"
+          >
+            <Button type="primary" disabled={!hasSelected}>
+              추가
+            </Button>{" "}
+          </Popconfirm>
           <Divider type="vertical" />
           <Popconfirm
             title={`${selectedRowKeys.length}개의 아이템을 정말로 삭제하시겠습니까?`}
@@ -106,7 +122,15 @@ export default class Admin extends Component {
             key="action"
             render={(text, record, index) => (
               <span>
-                <Button type="default">추가</Button>
+                <Popconfirm
+                  title={`${record.id}번 항목을 정말로 추가하시겠습니까?`}
+                  onConfirm={this.confirmAddOneItem.bind(this, record.id)}
+                  okText="예"
+                  cancelText="아니오"
+                  placement="topRight"
+                >
+                  <Button type="default">추가</Button>
+                </Popconfirm>
                 <Divider type="vertical" style={{ visibility: "hidden" }} />
                 <Popconfirm
                   title={`${record.id}번 항목을 정말로 삭제하시겠습니까?`}
