@@ -4,7 +4,7 @@
 
 https://caesiumy.github.io/good-idea-cards/#/
 
-> 백엔드는 미배포
+> 백엔드도 배포 완료!!
 
 ## 🎈아이디어 동기
 
