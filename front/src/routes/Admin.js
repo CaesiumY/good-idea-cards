@@ -56,7 +56,7 @@ export default class Admin extends Component {
   confirmAddOneItem = (payload, e) => {
     console.log("payload:", payload);
     api
-      .createDrafts({
+      .createPosts({
         author: payload.author,
         content: payload.content,
         created_at: payload.created_at
@@ -78,7 +78,7 @@ export default class Admin extends Component {
         if (item === result.id) {
           console.log("result:", result);
           api
-            .createDrafts({
+            .createPosts({
               author: result.author,
               content: result.content,
               created_at: result.created_at
