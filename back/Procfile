@@ -1,0 +1,1 @@
+web: gunicorn goodcards.wsgi --log-file -
