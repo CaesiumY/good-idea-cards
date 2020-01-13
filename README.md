@@ -65,3 +65,11 @@ https://caesiumy.github.io/good-idea-cards/#/
 <br/>
 <a href="https://raw.githubusercontent.com/CaesiumY/good-idea-cards/master/screenshots/localhost_3000_(Galaxy%20S5)%20(4).png">PC버전</a>
 </details>
+
+## 📜코딩 야학 수료증
+
+<details>
+<img src="./screenshots/코딩야학.png" width=400px>
+<br/>
+<a href="https://cert.yah.ac/?d=%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20%ED%8A%B8%EB%9E%99&n=%EC%9C%A4%EC%B0%BD%EC%8B%9D&t=2&a=%EC%BD%94%EB%94%A9%EC%95%BC%ED%95%99">링크</a>
+</details>
