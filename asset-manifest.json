@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/good-idea-cards/static/css/main.9511f89c.chunk.css",
-    "main.js": "/good-idea-cards/static/js/main.e8572c56.chunk.js",
-    "main.js.map": "/good-idea-cards/static/js/main.e8572c56.chunk.js.map",
+    "main.js": "/good-idea-cards/static/js/main.c56b2298.chunk.js",
+    "main.js.map": "/good-idea-cards/static/js/main.c56b2298.chunk.js.map",
     "runtime-main.js": "/good-idea-cards/static/js/runtime-main.9778135b.js",
     "runtime-main.js.map": "/good-idea-cards/static/js/runtime-main.9778135b.js.map",
     "static/css/2.fa954b3f.chunk.css": "/good-idea-cards/static/css/2.fa954b3f.chunk.css",
     "static/js/2.f9f57672.chunk.js": "/good-idea-cards/static/js/2.f9f57672.chunk.js",
     "static/js/2.f9f57672.chunk.js.map": "/good-idea-cards/static/js/2.f9f57672.chunk.js.map",
     "index.html": "/good-idea-cards/index.html",
-    "precache-manifest.4822554590e525c70bf3d36ec4da26e6.js": "/good-idea-cards/precache-manifest.4822554590e525c70bf3d36ec4da26e6.js",
+    "precache-manifest.c1e073c663c0a155c8056b6af39696f6.js": "/good-idea-cards/precache-manifest.c1e073c663c0a155c8056b6af39696f6.js",
     "service-worker.js": "/good-idea-cards/service-worker.js",
     "static/css/2.fa954b3f.chunk.css.map": "/good-idea-cards/static/css/2.fa954b3f.chunk.css.map",
     "static/css/main.9511f89c.chunk.css.map": "/good-idea-cards/static/css/main.9511f89c.chunk.css.map",
@@ -20,6 +20,6 @@
     "static/css/2.fa954b3f.chunk.css",
     "static/js/2.f9f57672.chunk.js",
     "static/css/main.9511f89c.chunk.css",
-    "static/js/main.e8572c56.chunk.js"
+    "static/js/main.c56b2298.chunk.js"
   ]
 }

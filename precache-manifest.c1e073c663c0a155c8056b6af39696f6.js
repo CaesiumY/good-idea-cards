@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "4cf77ca1fb776b5bde1c59f6b60022ad",
+    "revision": "a43b0de19dea1c21ab3dd811559c369a",
     "url": "/good-idea-cards/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/good-idea-cards/static/css/2.fa954b3f.chunk.css"
   },
   {
-    "revision": "2d00747775e55a6f99a7",
+    "revision": "6eba47d691154ea3198c",
     "url": "/good-idea-cards/static/css/main.9511f89c.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/good-idea-cards/static/js/2.f9f57672.chunk.js.LICENSE"
   },
   {
-    "revision": "2d00747775e55a6f99a7",
-    "url": "/good-idea-cards/static/js/main.e8572c56.chunk.js"
+    "revision": "6eba47d691154ea3198c",
+    "url": "/good-idea-cards/static/js/main.c56b2298.chunk.js"
   },
   {
     "revision": "58bb8fae7806082f0b7e",
