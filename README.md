@@ -14,6 +14,11 @@ https://caesiumy.github.io/good-idea-cards/#/
 >
 > 이렇게 좋은 생각 카드를 찾는 시간을 절약하기 위해 개발을 결심
 
+<br/>
+<img src="./screenshots/comment.jpg" width="500">
+
+> 여기 있습니다. 맛난 주스 선물 세트와의 콜라보는 무기한 보류입니다.
+
 ## 🧱개발 스택
 
 - 프론트: `React.js`
@@ -31,6 +36,7 @@ https://caesiumy.github.io/good-idea-cards/#/
 - [x] 메뉴의 버튼을 눌렀을 때 토글 off
 - [x] 버튼을 눌러 카드 새로 가져오기
 - [x] 관리자 페이지 제작
+- [x] PWA 장착
 
 ### 😥보류
 
