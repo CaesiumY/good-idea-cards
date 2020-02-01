@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/good-idea-cards/precache-manifest.c1e073c663c0a155c8056b6af39696f6.js"
+  "/good-idea-cards/precache-manifest.ff199f25737c48f645781b5a94f365e9.js"
 );
 
 self.addEventListener('message', (event) => {
