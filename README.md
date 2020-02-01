@@ -37,6 +37,7 @@ https://caesiumy.github.io/good-idea-cards/#/
 - [x] 버튼을 눌러 카드 새로 가져오기
 - [x] 관리자 페이지 제작
 - [x] PWA 장착
+- [x] 구글 애널리틱스 장착
 
 ### 😥보류
 
