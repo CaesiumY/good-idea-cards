@@ -16,7 +16,7 @@ openpyxl==3.0.2
 psycopg2-binary==2.8.4
 pycodestyle==2.5.0
 pytz==2019.3
-PyYAML==5.2
+PyYAML==5.4
 sqlparse==0.3.0
 tablib==0.14.0
 whitenoise==5.0.1
