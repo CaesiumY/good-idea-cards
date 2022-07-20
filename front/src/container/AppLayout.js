@@ -27,6 +27,7 @@ export default class AppLayout extends Component {
             padding: 24,
             background: "#fff",
             minHeight: 280,
+            minWidth: "60%",
             maxWidth: 720,
             boxShadow: "4px 4px 4px rgba(0,0,0, 0.1)",
           }}
