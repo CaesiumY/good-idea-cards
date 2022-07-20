@@ -8,12 +8,12 @@ const { Content, Footer, Header } = Layout;
 
 export default class AppLayout extends Component {
   state = {
-    collapsed: false
+    collapsed: false,
   };
 
   toggle = () => {
     this.setState({
-      collapsed: !this.state.collapsed
+      collapsed: !this.state.collapsed,
     });
   };
 
@@ -23,10 +23,12 @@ export default class AppLayout extends Component {
         <Header style={{ backgroundColor: "inherit" }}></Header>
         <Content
           style={{
-            margin: "24px 16px",
+            margin: "24px auto",
             padding: 24,
             background: "#fff",
-            minHeight: 280
+            minHeight: 280,
+            maxWidth: 720,
+            boxShadow: "4px 4px 4px rgba(0,0,0, 0.1)",
           }}
         >
           {this.props.children}
