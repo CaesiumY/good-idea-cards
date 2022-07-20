@@ -2,7 +2,7 @@ import axios from "axios";
 
 axios.defaults.baseURL = "https://good-idea-cards.herokuapp.com/api";
 
-export default {
+const apis = {
   getAllPosts() {
     return axios.get("/posts/");
   },
@@ -27,8 +27,10 @@ export default {
     const search_query = payload;
     return axios.get("/search/", {
       params: {
-        search_query
-      }
+        search_query,
+      },
     });
-  }
+  },
 };
+
+export default apis;

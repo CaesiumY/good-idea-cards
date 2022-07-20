@@ -14,12 +14,12 @@
     "less": "^3.10.3",
     "less-loader": "^5.0.0",
     "prop-types": "^15.8.1",
-    "react": "^16.12.0",
+    "react": "17",
     "react-app-rewired": "^2.2.1",
     "react-burger-menu": "^2.6.13",
-    "react-dom": "^16.12.0",
+    "react-dom": "17",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.3.0",
+    "react-scripts": "4",
     "styled-components": "^4.4.1"
   },
   "scripts": {
